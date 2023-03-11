@@ -5,6 +5,7 @@ import BigNumber from 'bignumber.js';
 // import { MockUSDCABI } from './ContractABI/MockUSDC.sol/MockUSDC.json';
 
 const MockUSDCABI = require('./ContractABI/MockUSDC.sol/MockUSDC.json');
+const ERC20ContractAddress = '0xcF18379257eAF734a7d7E1D4068163b3A4b021F8';
 
 const MintUSDC = (props) => {
 
@@ -13,7 +14,7 @@ const MintUSDC = (props) => {
         console.log(`connectToMetamaskUsingEthers called address is : ${userAddress}`);
         if (userAddress) {
             const provider = new ethers.providers.Web3Provider(window.ethereum);
-            const ERC20ContractAddress = '0xcF18379257eAF734a7d7E1D4068163b3A4b021F8';
+            
             const contractAbi = MockUSDCABI.abi;
             const signer = await provider.getSigner();
             // provider or signer
@@ -61,6 +62,7 @@ const MintUSDC = (props) => {
     return (
         <div>
         <div> balance of USDC: { mockUSDCBalance }</div>
+        <div> USDC币地址:{ERC20ContractAddress}</div>
         <span> mint 测试 USDC 币 </span>
         <div><button onClick={ () => handleButtonClick(100) }>mint 100 个</button></div>
         </div>
