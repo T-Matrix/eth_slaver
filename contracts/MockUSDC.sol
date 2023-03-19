@@ -1,17 +1,25 @@
-// SPDX-License-Identifier: GPL-3.0
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.9;
 
-pragma solidity ^0.8.0;
+import {ERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+// https://goerli.etherscan.io/address/0x8e0a936ec7ef23ef2a06bb9cdb628ee6ff29cd7d#code
 
-// etherscan: https://goerli.etherscan.io/address/0xcF18379257eAF734a7d7E1D4068163b3A4b021F8
+// USDC 和 USDT 都是 6 位小数
 
-contract MockUSDC is ERC20 {
-    constructor() ERC20("Mock USDC", "USDC") {
-        _mint(msg.sender, 100*10**18);
+contract MockERC20 is ERC20 {
+    
+    uint8 internal immutable _decimals;
+
+    constructor(string memory name_, string memory symbol_, uint8 decimals_) ERC20(name_, symbol_) {
+        _decimals = decimals_;
     }
 
-    function mint(address to, uint256 amount) public {
-        _mint(to, amount);
+    function mint(address usr_, uint256 amount_) public {
+        _mint(usr_, amount_);
+    }
+
+    function decimals() public view override returns (uint8) {
+        return _decimals;
     }
 }

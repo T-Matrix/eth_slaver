@@ -5,7 +5,7 @@ import BigNumber from 'bignumber.js';
 // import { MockUSDCABI } from './ContractABI/MockUSDC.sol/MockUSDC.json';
 
 const MockUSDCABI = require('./ContractABI/MockUSDC.sol/MockUSDC.json');
-const ERC20ContractAddress = '0xcF18379257eAF734a7d7E1D4068163b3A4b021F8';
+const ERC20ContractAddress = '0x8e0a936ec7ef23ef2a06bb9cdb628ee6ff29cd7d';
 
 const MintUSDC = (props) => {
 
@@ -26,7 +26,7 @@ const MintUSDC = (props) => {
             const weiNumber = new BigNumber(balance.toString());
             // Retrieve token symbol
             const symbol = await ERC20Contract.symbol();
-            const ethVal = weiNumber.dividedBy(new BigNumber('10').pow(18));
+            const ethVal = weiNumber.dividedBy(new BigNumber('10').pow(6));
             console.log(`Balance of ${symbol}: ${ethVal.toString()}`);
 
             setMockUSDCContract(ERC20Contract);
@@ -46,7 +46,7 @@ const MintUSDC = (props) => {
     const handleButtonClick = async (amount) => {
         console.log('button clicked: ', amount);
         if (userAccountAddress && window.ethereum && !isNaN(amount)) {
-            const weiValue = new BigNumber(amount).times(10 ** 18);
+            const weiValue = new BigNumber(amount).times(10 ** 6);
             try {
                 const result = await mockUSDCContract.mint(userAccountAddress, weiValue.toString());
                 console.log(result);
@@ -62,7 +62,8 @@ const MintUSDC = (props) => {
     return (
         <div>
         <div> balance of USDC: { mockUSDCBalance }</div>
-        <div> USDC币地址:{ERC20ContractAddress}</div>
+        <br/>
+        <div> USDC币地址:{ ERC20ContractAddress }</div>
         <span> mint 测试 USDC 币 </span>
         <div><button onClick={ () => handleButtonClick(100) }>mint 100 个</button></div>
         </div>
