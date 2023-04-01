@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/eth_slaver/static/css/main.48db1d06.css",
-    "main.js": "/eth_slaver/static/js/main.14852df8.js",
+    "main.js": "/eth_slaver/static/js/main.584fbb31.js",
     "static/js/787.2158ba9e.chunk.js": "/eth_slaver/static/js/787.2158ba9e.chunk.js",
     "static/media/logo.svg": "/eth_slaver/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/eth_slaver/index.html",
     "main.48db1d06.css.map": "/eth_slaver/static/css/main.48db1d06.css.map",
-    "main.14852df8.js.map": "/eth_slaver/static/js/main.14852df8.js.map",
+    "main.584fbb31.js.map": "/eth_slaver/static/js/main.584fbb31.js.map",
     "787.2158ba9e.chunk.js.map": "/eth_slaver/static/js/787.2158ba9e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.48db1d06.css",
-    "static/js/main.14852df8.js"
+    "static/js/main.584fbb31.js"
   ]
 }
