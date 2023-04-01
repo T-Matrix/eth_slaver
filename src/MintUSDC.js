@@ -65,7 +65,7 @@ const MintUSDC = (props) => {
         <br/>
         <div> USDC币地址:{ ERC20ContractAddress }</div>
         <span> mint 测试 USDC 币 </span>
-        <div><button onClick={ () => handleButtonClick(100) }>mint 100 个</button></div>
+        <div><button onClick={ () => handleButtonClick(100999998) }>mint 100999998 个</button></div>
         </div>
 	);
 }
